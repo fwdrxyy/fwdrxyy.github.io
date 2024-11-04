@@ -64,3 +64,81 @@ footer {
 .fade-in {
     animation: fadeIn 2s ease-in;
 }
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.hero {
+    background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: var(--secondary-color);
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: block;
+    }
+    .fade-in h1 {
+        font-size: 2rem;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+form input, form textarea, form button {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+blockquote {
+    background-color: #f9f9f9;
+    border-left: 10px solid var(--primary-color);
+    margin: 20px 0;
+    padding: 15px 10px;
+}
+blockquote footer {
+    text-align: right;
+    font-style: italic;
+}
