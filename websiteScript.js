@@ -46,3 +46,16 @@ setInterval(updateBotStatus, 10000);
 document.getElementById("theme-toggle").addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
 });
+
+const videoIds = ['oXMqNDgkTmg', 'dXZ2LBAiOuc']; // Replace with your actual IDs
+
+const youtubeFeed = document.getElementById('youtubeFeed');
+
+videoIds.forEach(id => {
+  const iframe = document.createElement('iframe');
+  iframe.width = '360';
+  iframe.height = '215';
+  iframe.src = `https://www.youtube.com/embed/${id}`;
+  iframe.allowFullscreen = true;
+  youtubeFeed.appendChild(iframe);
+});
