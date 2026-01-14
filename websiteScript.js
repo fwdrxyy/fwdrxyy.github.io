@@ -44,20 +44,24 @@ cards.forEach(card => {
     });
 });
 
-// Define the videos you want to display
-const videoIds = ['dXZ2LBAiOuc', 'oXMqNDgkTmg'];
+/// YouTube IDs from your previous script
+const videoIds = ['oXMqNDgkTmg', 'dXZ2LBAiOuc']; 
 
 const youtubeFeed = document.getElementById('youtubeFeed');
 
-// Check if the element exists before running to avoid errors
-if (youtubeFeed) {
-    videoIds.forEach(id => {
-        const iframe = document.createElement('iframe');
-        iframe.width = '100%'; // Adjusted for responsiveness
-        iframe.height = '215';
-        iframe.src = `https://www.youtube.com/embed/${id}`;
-        iframe.frameBorder = "0";
-        iframe.allowFullscreen = true;
-        youtubeFeed.appendChild(iframe);
-    });
+// Use a function to ensure the DOM is ready
+function loadVideos() {
+    if (youtubeFeed) {
+        youtubeFeed.innerHTML = ""; // Clear any existing content
+        videoIds.forEach(id => {
+            const iframe = document.createElement('iframe');
+            iframe.width = '100%'; 
+            iframe.height = '215';
+            iframe.src = `https://www.youtube.com/embed/${id}`;
+            iframe.style.border = "none";
+            iframe.style.borderRadius = "8px";
+            iframe.allowFullscreen = true;
+            youtubeFeed.appendChild(iframe);
+        });
+    }
 }
