@@ -29,6 +29,4 @@ function loadVideos() {
     }
 }
 
-// 3. EXECUTE THE CODE
-// This line is what was missing!
 loadVideos();
