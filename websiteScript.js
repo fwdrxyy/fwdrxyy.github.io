@@ -27,7 +27,7 @@ function updateSystemStatus() {
     const badge = document.querySelector('.badge');
     if (badge) {
         const isOnline = Math.random() > 0.1; // 90% uptime
-        badge.innerText = isOnline ? "V2.0 • STABLE" : "V2.0 • MAINTENANCE";
+        badge.innerText = isOnline ? "v1.5 • Latest" : "v1.5 • MAINTENANCE";
         badge.style.background = isOnline ? "var(--accent-purple)" : "#ff4d4d";
     }
 }
