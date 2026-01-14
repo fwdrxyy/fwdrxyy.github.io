@@ -1,61 +1,63 @@
-// Sample command data
-const commands = [
-  { name: "ban", category: "Moderation", description: "Ban a user from the server." },
-  { name: "kick", category: "Moderation", description: "Kick a user from the server." },
-  { name: "ping", category: "Utility", description: "Check bot latency." },
-  { name: "help", category: "General", description: "Displays all commands avalible" }
-];
+// 1. Tool Logic: Add click events to the "INITIALIZE" buttons
+const launchButtons = document.querySelectorAll('.btn-launch');
 
-// Render command list
-function renderCommands(filter = "") {
-  const list = document.getElementById("command-list");
-  list.innerHTML = ""; // Clear previous items
+launchButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        // Find the tool name (the H3) relative to the clicked button
+        const toolName = e.target.parentElement.querySelector('h3').innerText;
+        
+        // Visual feedback for clicking
+        e.target.innerText = "LAUNCHING...";
+        e.target.style.borderColor = "#7000ff"; // Change to accent-purple
+        
+        console.log(`Initializing ${toolName} environment...`);
 
-  const filtered = commands.filter(cmd =>
-    cmd.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
-  filtered.forEach(cmd => {
-    const item = document.createElement("li");
-    item.innerHTML = `<strong>${cmd.name}</strong> (${cmd.category}): ${cmd.description}`;
-    list.appendChild(item);
-  });
-}
-
-
-document.getElementById("search").addEventListener("input", (e) => {
-  renderCommands(e.target.value);
+        // Simulate a loading delay
+        setTimeout(() => {
+            alert(`${toolName} has been initialized successfully!`);
+            e.target.innerText = "INITIALIZE";
+            e.target.style.borderColor = ""; 
+        }, 1500);
+    });
 });
 
-
-renderCommands();
-
-// == Bot Status (Simulated) ==
-function updateBotStatus() {
-  const statusEl = document.getElementById("status-indicator");
-  const isOnline = Math.random() > 0.2; // 80% chance online
-
-  statusEl.textContent = isOnline ? "🟢 Online" : "🔴 Offline";
-  statusEl.style.color = isOnline ? "green" : "red";
+// 2. Dynamic Status (Adapted from your old script)
+// Since you have a "STABLE" badge in the HTML, let's make it dynamic
+function updateSystemStatus() {
+    const badge = document.querySelector('.badge');
+    if (badge) {
+        const isOnline = Math.random() > 0.1; // 90% uptime
+        badge.innerText = isOnline ? "V2.0 • STABLE" : "V2.0 • MAINTENANCE";
+        badge.style.background = isOnline ? "var(--accent-purple)" : "#ff4d4d";
+    }
 }
 
-updateBotStatus();
-setInterval(updateBotStatus, 10000);
+// Update status every 30 seconds
+setInterval(updateSystemStatus, 30000);
 
-
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark-theme");
+// 3. Hover Sound Effect (Optional "Cyberpunk" feel)
+const cards = document.querySelectorAll('.tool-card');
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        // You could play a very subtle click/beep sound here
+        console.log("Hovering over utility...");
+    });
 });
 
-const videoIds = ['oXMqNDgkTmg', 'dXZ2LBAiOuc']; // Replace with your actual IDs
+// Define the videos you want to display
+const videoIds = ['dXZ2LBAiOuc', 'oXMqNDgkTmg'];
 
 const youtubeFeed = document.getElementById('youtubeFeed');
 
-videoIds.forEach(id => {
-  const iframe = document.createElement('iframe');
-  iframe.width = '360';
-  iframe.height = '215';
-  iframe.src = `https://www.youtube.com/embed/${id}`;
-  iframe.allowFullscreen = true;
-  youtubeFeed.appendChild(iframe);
-});
+// Check if the element exists before running to avoid errors
+if (youtubeFeed) {
+    videoIds.forEach(id => {
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%'; // Adjusted for responsiveness
+        iframe.height = '215';
+        iframe.src = `https://www.youtube.com/embed/${id}`;
+        iframe.frameBorder = "0";
+        iframe.allowFullscreen = true;
+        youtubeFeed.appendChild(iframe);
+    });
+}
