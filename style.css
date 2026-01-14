@@ -115,3 +115,23 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Make the icons slightly larger */
+.social-btn i {
+    font-size: 16px;
+}
