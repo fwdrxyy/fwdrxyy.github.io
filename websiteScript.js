@@ -1,15 +1,3 @@
-// 1. Dynamic Status
-function updateSystemStatus() {
-    const badge = document.querySelector('.badge');
-    if (badge) {
-        const isOnline = Math.random() > 0.1; 
-        badge.innerText = isOnline ? "v1.6 • Latest" : "v1.6 • MAINTENANCE";
-        badge.style.background = isOnline ? "var(--accent-purple)" : "#ff4d4d";
-    }
-}
-setInterval(updateSystemStatus, 30000);
-
-// 2. YouTube Feed Logic
 const videoIds = ['oXMqNDgkTmg', 'dXZ2LBAiOuc']; 
 
 function loadVideos() {
